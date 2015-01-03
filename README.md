@@ -11,12 +11,13 @@ Say you have a container like so:
 
 Should spit out coloured, absolutely positioned, comic sans words on your page, something like:
 
-`very info
+	
+	very info
 			
-			many read
+				many read
 		
 		wow
-						such tutorials`
+						such tutorials
 
   
 You can use dogey.js like this (defaults are listed here too):
