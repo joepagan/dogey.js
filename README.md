@@ -1,13 +1,23 @@
 dogey.js
 ========
 
-Pass a container element to dogey.js it'll read the text and add new "doge words" to the page for you
+Pass a container element to dogey.js it'll read the text and add new "doge words" to the page for you.
 
-Say you have a container like so
+Say you have a container like so:
 
 	<div class="container">
 		<p>For more info read the tutorials page</p>
 	</div>
+
+Should spit out coloured, absolutely positioned, comic sans words on your page, something like:
+
+`very info
+			
+			many read
+		
+		wow
+						such tutorials`
+
   
 You can use dogey.js like this (defaults are listed here too):
 
@@ -18,6 +28,3 @@ You can use dogey.js like this (defaults are listed here too):
 		duration: 600 // the duration of the fadeIn animation
 	});
 
-Should spit out something like:
-
-"very info" & "such tutorials"
