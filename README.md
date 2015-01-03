@@ -5,10 +5,10 @@ Pass a container element to dogey.js it'll read the text and add new "doge words
 
 Say you have a container like so
 
-  <div class="container">
-    <p>you fuckin' what mate, I'll shiv you.</p>
-  </div>
+   <div class="container">
+     <p>you fuckin' what mate, I'll shiv you.</p>
+   </div>
   
 You can use dogey.js like so
 
-  $(".container").dogey();
+   $(".container").dogey();
