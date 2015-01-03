@@ -11,4 +11,4 @@ Say you have a container like so
   
 You can use dogey.js like so
 
-   $(".container").dogey();
+	$(".container").dogey();
