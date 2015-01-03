@@ -83,18 +83,20 @@
 			}
 
 			setTimeout(function(){
-				$(element).velocity("fadeIn", { duration:600, display:"block" });
+				$(element).animate("fadeIn", { duration:opts.duration, display:"block" });
 			},parseInt(dogei));
 			
-			dogei = dogei+50;
+			dogei = dogei+opts.offset;
 			
 		});
 		
 	};
 
 	$.fn.dogey.defaults = {
-	    heightMode:document,
-	    animate:false
+	    heightMode: document,
+	    animate: true,
+	    offset: 50,
+	    duration: 600
 	};
 
 }( jQuery ));
