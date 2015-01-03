@@ -1,8 +1,10 @@
 (function ( $ ) {
 
-	var text, removelist, dogewords, dogecolours;
+	var text, removelist, dogewords, dogecolours, opts, options, dogei = 200;
 
-	$.fn.dogey = function(){
+	$.fn.dogey = function(options){
+
+		opts = $.extend( {}, $.fn.dogey.defaults, options );
 
 		text = this.text().toLowerCase();
 		// remove special chars
@@ -12,12 +14,11 @@
 		// replace tab space with space
 		text = text.replace(/\t+/g, " ");
 		
-		console.log(text);
 		text = text.split(" ");
 
 		removelist = [
-	        "a", "an", "as", "at", "before", "best", "but", "by", "could", "ever", "for", "from", "hes", "I", "is",
-	        "in", "into", "like", "of", "off", "on", "onto", "per", "shes", "since",
+	        "a", "an", "and", "as", "at", "before", "best", "but", "by", "could", "ever", "for", "from", "hes", "I", "is",
+	        "in", "into", "like", "not", "of", "off", "our", "on", "onto", "per", "shes", "since",
 	        "than", "the", "this", "that", "to", "up", "via", "with"
 	    ];
 
@@ -43,25 +44,57 @@
 
 	    });
 
-		$("body").append("<div class='doge_woofs'></div>");
+		$("body").css({"position":"relative"}).append("<div class='doge_woofs'></div>");
+
+		if(opts.heightMode == window){
+			$("body").append("<style>.woof{position:fixed;font-size:24px;z-index:999;font-family:Comic Sans MS, cursive, sans-serif;}</style>");
+		}
+		if(opts.heightMode == document){
+			$("body").append("<style>.woof{position:absolute;font-size:24px;z-index:999;font-family:Comic Sans MS, cursive, sans-serif;}</style>");
+		}
+
+		if(opts.animate == true){
+			$("body").append("<style>.woof{display:none;}</style>");
+		}else{
+			$("body").append("<style>.woof{display:block;}</style>");
+		}
 		
 		$(text).each(function(index, element){
 			$(".doge_woofs").append("<p class='woof'>"+dogewords[Math.floor(Math.random()*dogewords.length)]+" "+element+"</p>");
 		});
 		$(".doge_woofs").append("<p class='woof'>wow</p><p class='woof'>amaze</p>");
 		$(".doge_woofs .woof").each(function(index, element){
-			$(element).css({
-				"position":"absolute",
-				"left": Math.floor(Math.random() * $(window).width()-200),
-				"top": Math.floor(Math.random() * $(document).height()),
-				"z-index":"999",
-				"font-family":"Comic Sans MS, cursive, sans-serif",
-				"font-size":"24px",
-				"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
-			});
+			if(index%2 == 0){
+
+				$(element).css({
+					"left": Math.floor(( Math.random() * 45 + 1) ) + "%",
+					"top": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
+					"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
+				});
+
+			}else{
+
+				$(element).css({
+					"right": Math.floor(( Math.random() * 45 + 1) ) + "%",
+					"bottom": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
+					"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
+				});
+
+			}
+
+			setTimeout(function(){
+				$(element).velocity("fadeIn", { duration:600, display:"block" });
+			},parseInt(dogei));
+			
+			dogei = dogei+50;
 			
 		});
 		
+	};
+
+	$.fn.dogey.defaults = {
+	    heightMode:document,
+	    animate:false
 	};
 
 }( jQuery ));
