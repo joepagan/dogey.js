@@ -1,1 +1,53 @@
-<h1>Welcome</h1>
+<html>
+
+  <head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+
+    <title>dogey.js</title>
+
+    <!--[if lt IE 9]>
+      <script src="<?php echo $res; ?>/third_party/js/html5shiv/html5shiv.min.js"></script>
+      <script src="<?php echo $res; ?>/third_party/js/html5shiv/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="resources/third_party/css/normalize.css" />
+    <link rel="stylesheet" href="resources/third_party/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/third_party/flat-ui/css/flat-ui.min.css" />
+    <link rel="stylesheet" href="resources/css/styles.css" />
+
+  </head>
+
+  <body>
+
+    <header>
+      <h1>dogey.js</h1>
+      <p>
+        Finally! A useful javascript doge plugin!
+      </p>
+    </header>
+
+    <main id="main">
+      The community has needed something like this ever since the meme's creation. Maybe there is one out there, but I've only ever seen generic ones with static phrases. This one goes of dynamic content from a selected element.
+    </main>
+
+    <footer>
+      <p>
+        Created by <a href="http://www.joe-pagan.com">Joe Pagan</a>.
+      </p>
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      // CDN Fallback
+      if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='resources/third_party/js/jquery/jquery-1.11.0.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
+    <script src="resources/third_party/bootstrap/js/bootstrap.min.js"></script>
+    <script src="resources/third_party/flat-ui/js/flat-ui.min.js"></script>
+    <script src="resources/js/global.js"></script>
+
+  </body>
+</html>
