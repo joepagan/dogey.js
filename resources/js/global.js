@@ -9,6 +9,5 @@ $(document).ready(function(){
 $(window).load(function(){
 
 	$("#main p").dogey();
-	console.log("hi");
 
 });
