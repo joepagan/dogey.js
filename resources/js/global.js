@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 $(window).load(function(){
 
-	$("#main").dogey();
+	$("#main p").dogey();
+	console.log("hi");
 
 });
