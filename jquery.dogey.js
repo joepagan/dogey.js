@@ -1,6 +1,5 @@
+var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei = 200;
 (function ( $ ) {
-
-	var text, removelist, dogewords, dogecolours, opts, options, dogei = 200;
 
 	$.fn.dogey = function(options){
 
@@ -63,32 +62,36 @@
 			$(".doge_woofs").append("<p class='woof'>"+dogewords[Math.floor(Math.random()*dogewords.length)]+" "+element+"</p>");
 		});
 		$(".doge_woofs").append("<p class='woof'>wow</p><p class='woof'>amaze</p>");
+
 		$(".doge_woofs .woof").each(function(index, element){
-			if(index%2 == 0){
 
-				$(element).css({
-					"left": Math.floor(( Math.random() * 45 + 1) ) + "%",
-					"top": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
-					"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
-				});
+			if(index <= opts.limit){
 
-			}else{
+				$woofelement = $(element);
+				console.log(index);
 
-				$(element).css({
-					"right": Math.floor(( Math.random() * 45 + 1) ) + "%",
-					"bottom": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
-					"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
-				});
+				if(index%2 == 0){
 
-			}
+					$woofelement.css({
+						"left": Math.floor(( Math.random() * 45 + 1) ) + "%",
+						"top": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
+						"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
+					});
 
-			if(opts.animate == true){
+				}else{
 
-				setTimeout(function(){
-					$(element).animate("fadeIn", { duration:opts.duration, display:"block" });
-				},parseInt(dogei));
+					$woofelement.css({
+						"right": Math.floor(( Math.random() * 45 + 1) ) + "%",
+						"bottom": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
+						"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
+					});
 
-				dogei = dogei+opts.offset;
+				}
+
+				if(opts.animate == true){
+					$woofelement.delay(parseInt(dogei)).fadeIn(opts.duration);
+					dogei = dogei+opts.offset;
+				}
 
 			}
 
@@ -98,9 +101,10 @@
 
 	$.fn.dogey.defaults = {
 		heightMode: document,
-		animate: false,
-		offset: 50,
-		duration: 600
+		animate: true,
+		offset: 500,
+		duration: 600,
+		limit:20
 	};
 
 }( jQuery ));
