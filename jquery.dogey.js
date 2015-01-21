@@ -16,9 +16,9 @@ var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei
 		text = text.split(" ");
 
 		removelist = [
-			"a", "an", "and", "as", "at", "before", "best", "but", "by", "could", "ever", "for", "from", "hes", "I", "is",
+			"a", "all", "an", "and", "as", "at", "before", "best", "but", "by", "could", "ever", "for", "from", "hes", "I", "is",
 			"in", "into", "like", "not", "of", "off", "our", "on", "onto", "per", "shes", "since",
-			"than", "the", "this", "that", "to", "up", "via", "with", "something", "there", "maybe", "has", "ive", "one", "ones", "out", "goes", "seen", "only"
+			"than", "the", "this", "that", "to", "up", "via", "with", "something", "there", "maybe", "has", "ive", "one", "ones", "out", "goes", "seen", "only", "within", "essentially", "spits", "creates"
 		];
 
 		// adding new words to the remove list
