@@ -10,24 +10,19 @@ $darkGrey:#333;
 *,
 *:before,
 *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   @include box-sizing(border-box);
 }
 
 html{
 	min-height:100%;
 	height:100%;
+  font-size:14px;
 }
 
 body{
 	min-height:100%;
 	background:$white;
-	@include selection($white, $darkGrey);
 	p{
-		color:$grey;
-		font-size:14px;
 		@include selection($white, $darkGrey);
 	}
 }
@@ -53,4 +48,31 @@ a{
 
 .hidden{
 	display:none;
+}
+
+#header{
+  text-align:center;
+}
+
+#main{
+  .btn{
+      margin:0 auto;
+  }
+  .code{
+    overflow-x:scroll;
+    display:block;
+    position:relative;
+    .comment{
+      display:inline-block;
+      color:$grey;
+    }
+    code{
+      width:2000px;
+      display:block;
+    }
+  }
+}
+
+#footer{
+  text-align:center;
 }

@@ -1,4 +1,4 @@
-var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei = 200;
+var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei = 200, addtionalRemovedWords, addtionalWords, addDogeWords;
 (function ( $ ) {
 
 	$.fn.dogey = function(options){
@@ -12,44 +12,57 @@ var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei
 		text = text.replace(/(\r\n|\n|\r)/gm,"");
 		// replace tab space with space
 		text = text.replace(/\t+/g, " ");
-
+		// turn text string into array of words
 		text = text.split(" ");
 
 		removelist = [
-		"a", "an", "and", "as", "at", "before", "best", "but", "by", "could", "ever", "for", "from", "hes", "I", "is",
-		"in", "into", "like", "not", "of", "off", "our", "on", "onto", "per", "shes", "since",
-		"than", "the", "this", "that", "to", "up", "via", "with"
+			"a", "an", "and", "as", "at", "before", "best", "but", "by", "could", "ever", "for", "from", "hes", "I", "is",
+			"in", "into", "like", "not", "of", "off", "our", "on", "onto", "per", "shes", "since",
+			"than", "the", "this", "that", "to", "up", "via", "with", "something", "there", "maybe", "has", "ive", "one", "ones", "out", "goes", "seen", "only"
 		];
 
+		// adding new words to the remove list
+		if(opts.removeWords != null){
+			addtionalRemovedWords = opts.removeWords.split(" ");
+			removelist = addtionalRemovedWords.concat(removelist);
+		}
+
 		dogewords = [
-		"many", "such", "so", "nice", "much", "very"
+			"many", "such", "so", "nice", "much", "very"
 		];
+
+		// adding new words to the dogewords list
+		if(opts.addDogeWords != null){
+			addDogeWords = opts.addDogeWords.split(" ");
+			dogewords = addDogeWords.concat(dogewords);
+		}
 
 		dogecolours = [
 		"#FF0000", "#2AFF00", "#000DFF", "#FFCC33"
 		];
 
+		// remove list items from the text array
 		$(removelist).each(function(removeindex,removeelement){
-
 			if(text.indexOf(removeelement) !== -1){
-
 				for (var i=text.length-1; i>=0; i--) {
 					if (text[i] === removeelement) {
 						text.splice(i, 1);
 					}
 				}
-
 			}
-
 		});
 
-		$("body").css({"position":"relative"}).append("<div class='doge_woofs'></div>");
+		// remove empty array items
+		text = $.grep(text,function(n){ return(n) });
+
+		$(opts.container).css({"position":"relative","overflow":opts.overflow}).append("<div class='doge_woofs'></div>");
+		$("body").append("<style>.woof{font-size:24px;z-index:999;font-family:Comic Sans MS, cursive, sans-serif;}</style>");
 
 		if(opts.heightMode == window){
-			$("body").append("<style>.woof{position:fixed;font-size:24px;z-index:999;font-family:Comic Sans MS, cursive, sans-serif;}</style>");
+			$("body").append("<style>.woof{position:fixed;}</style>");
 		}
 		if(opts.heightMode == document){
-			$("body").append("<style>.woof{position:absolute;font-size:24px;z-index:999;font-family:Comic Sans MS, cursive, sans-serif;}</style>");
+			$("body").append("<style>.woof{position:absolute;}</style>");
 		}
 
 		if(opts.animate == true){
@@ -68,13 +81,12 @@ var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei
 			if(index <= opts.limit){
 
 				$woofelement = $(element);
-				console.log(index);
 
 				if(index%2 == 0){
 
 					$woofelement.css({
 						"left": Math.floor(( Math.random() * 45 + 1) ) + "%",
-						"top": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
+						"top": Math.floor(( Math.random() * (($(opts.container).height()/100)*96) + 1) ),
 						"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
 					});
 
@@ -82,7 +94,7 @@ var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei
 
 					$woofelement.css({
 						"right": Math.floor(( Math.random() * 45 + 1) ) + "%",
-						"bottom": Math.floor(( Math.random() * (($(opts.heightMode).height()/100)*96) + 1) ),
+						"bottom": Math.floor(( Math.random() * (($(opts.container).height()/100)*96) + 1) ),
 						"color": dogecolours[Math.floor(Math.random() * dogecolours.length)]
 					});
 
@@ -101,10 +113,14 @@ var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei
 
 	$.fn.dogey.defaults = {
 		heightMode: document,
+		container:"body",
 		animate: true,
 		offset: 500,
 		duration: 600,
-		limit:20
+		limit:20,
+		removeWords:null,
+		addDogeWords:null,
+		overflow:"hidden"
 	};
 
 }( jQuery ));

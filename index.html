@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="resources/third_party/css/normalize.css" />
     <link rel="stylesheet" href="resources/third_party/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="resources/third_party/flat-ui/css/flat-ui.min.css" />
+    <link rel="stylesheet" href="resources/third_party/bootswatch/flatly/bootstrap.min.css" />
     <link rel="stylesheet" href="resources/css/styles.css" />
 
   </head>
@@ -23,7 +23,7 @@
 
     <div class="container">
 
-      <header class="row">
+      <header class="row" id="header">
         <h1>dogey.js</h1>
         <p class="lead">
           Finally! A useful javascript doge plugin!
@@ -37,29 +37,50 @@
       <main id="main">
 
         <div class="row">
-          <div class="col-xs-offset-3 col-xs-6">
+          <div class="col-xs-offset-3 col-xs-6 doge_img_wrapper">
             <img src="resources/images/doge_large.jpg" class="img-rounded img-responsive" alt="" />
           </div>
         </div>
 
-        <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <h2>What is dogey.js?</h2>
           <p>
             The community has needed something like this ever since the meme's creation. Maybe there is one out there, but I've only ever seen generic ones with static phrases. This one goes of dynamic content from a selected element.
           </p>
+          <div class="col-lg-6 col-lg-offset-3">
+            <a href="https://github.com/lexbi/dogey.js/tree/master" class="btn btn-block btn-lg btn-primary">Download on GitHub</a>
+          </div>
         </div>
+
+        <div class="clear"></div>
+
+        <div class="col-lg-8 col-lg-offset-2">
+        <h3>Example</h3>
+      </div>
+        <div class="clear"></div>
+
+        <div class="well col-lg-8 col-lg-offset-2 code">
+          <code>
+            $(".doge_img_wrapper").dogey({<br>
+              &emsp;&emsp;&emsp;&emsp;heightMode: document, <span class="comment">// The words will load at random points all the way down the document, you can also use "window", make sure not to use quotes for this option. This option will be ignored if a container other than "body" is set.</span><br>
+              &emsp;&emsp;&emsp;&emsp;container:"body", <span class="comment">// The wrapping container element that all the Doge phrases will be injected into</span><br>
+              &emsp;&emsp;&emsp;&emsp;animate: true, <span class="comment">// Will load the words in one after another (using jquery animate), otherwise they'll just appear on doc ready or window load&hellip;</span><br>
+              &emsp;&emsp;&emsp;&emsp;offset: 500, <span class="comment">// The offset (in ms) in which the words will fade in</span><br>
+              &emsp;&emsp;&emsp;&emsp;duration: 600, <span class="comment">// The duration of the fadeIn animation</span><br>
+              &emsp;&emsp;&emsp;&emsp;limit:20, <span class="comment">// The amount of doge words that will be added to the page</span><br>
+              &emsp;&emsp;&emsp;&emsp;removeWords:null, <span class="comment">// Remove specific words from the text that gets passed to the plugin, needs to be in quotes and space seperated "like this"</span><br>
+              &emsp;&emsp;&emsp;&emsp;addDogeWords:null, <span class="comment">// Add doge words like "such", "much", "very" needs to be in quotes and space seperated "like this"</span><br>
+              &emsp;&emsp;&emsp;&emsp;overflow:"hidden" <span class="comment">// Sets the overflow of the container element, either you may want "scroll" or "hidden"</span><br>
+            });
+          </code>
+        </div>
+
         <div class="clear"></div>
       </main>
 
-      <div class="row">
-        <div class="col-xs-3" style="margin-bottom:20px;">
-          <a href="https://github.com/lexbi/dogey.js/tree/master" class="btn btn-block btn-lg btn-primary">Download on GitHub</a>
-        </div>
-      </div>
-
     </div>
 
-
-    <footer>
+    <footer id="footer">
       <div class="container">
         <div class="row">
           <h3 class="footer-title">Developed by</h3>

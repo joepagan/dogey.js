@@ -1,7 +1,7 @@
 @charset "UTF-8";
 // Bourbon v3.1.8 (225kb)
 // http://bourbon.io/
-// @import "../third_party/scss/bourbon/bourbon";
+@import "../third_party/scss/bourbon/bourbon";
 
 // Neat v1.5 (86kb)
 // http://neat.bourbon.io/
@@ -47,6 +47,3 @@ $base-font-size:16px;
 @import "mixins";
 @import "animations";
 @import "template";
-
-@import "pages/home";
-@import "pages/contact";

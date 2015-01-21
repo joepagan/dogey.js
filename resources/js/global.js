@@ -8,6 +8,8 @@ $(document).ready(function(){
 
 $(window).load(function(){
 
-	$("#main p").dogey();
+	$("#main p").dogey({
+		container:".doge_img_wrapper"
+	});
 
 });
