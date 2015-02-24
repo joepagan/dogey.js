@@ -117,7 +117,7 @@ var text, removelist, dogewords, dogecolours, opts, options, $woofelement, dogei
 		animate: true,
 		offset: 500,
 		duration: 600,
-		limit:20,
+		limit:10,
 		removeWords:null,
 		addDogeWords:null,
 		overflow:"hidden"

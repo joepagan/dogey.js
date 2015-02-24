@@ -42,7 +42,7 @@ You can use dogey.js like this (defaults are listed here too):
 		animate: true, // Will load the words in one after another (using jquery animate), otherwise they'll just appear on doc ready or window load…
 		offset: 500, // The offset (in ms) in which the words will fade in
 		duration: 600, // The duration of the fadeIn animation
-		limit:20, // The amount of doge words that will be added to the page
+		limit:10, // The amount of doge words that will be added to the page
 		removeWords:null, // Remove specific words from the text that gets passed to the plugin, needs to be in quotes and space seperated "like this"
 		addDogeWords:null, // Add doge words like "such", "much", "very" needs to be in quotes and space seperated "like this"
 		overflow:"hidden" // Sets the overflow of the container element, either you may want "scroll" or "hidden"
