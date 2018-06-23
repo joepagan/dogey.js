@@ -2,7 +2,7 @@
 
 Pass a container element to dogey.js it'll read the text and add new "doge words" to the page for you.
 
-View the [Demo Page](http://lexbi.github.io/dogey.js/).
+View the [Demo Page](https://joepagan.github.io/dogey.js/).
 
 Say you have a container like so:
 
